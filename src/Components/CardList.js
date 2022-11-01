@@ -2,8 +2,13 @@ import React from "react";
 import Card from "./Card";
 
 const CardList = ({ robots }) => {
-    const cardComponent = robots.map((user, i) => { //map = for loop(ES6)
-        return <Card key={i} id={robots[i].id} name={robots[i].name} email={robots[i].email}/>
+    const cardComponent = robots.map(user => {
+        return (
+        <Card 
+        key={user.id} 
+        user={user}
+        />
+        )
     })
     return (
         <div>
