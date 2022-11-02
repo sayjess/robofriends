@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import CardList from "../Components/CardList";
-//import { robots } from './Robot'; //for multiple value need to destructure
 import SearchBox from '../Components/SearchBox';
 import './App.css';
 import Scroll from '../Components/Scroll';
-//import ErrorBoundary from "../Components/ErrorBoundary";
+import ErrorBoundry from "../Components/ErrorBoundry";
 
 class App extends Component {
     constructor(){
@@ -37,7 +36,9 @@ class App extends Component {
                 <h1 className="f1">RoboFriends</h1>
                 <SearchBox searchChange={this.onSearchChange}/>
                 <Scroll>
-                    <CardList robots={filteredRobots} />
+                    <ErrorBoundry>
+                        <CardList robots={filteredRobots} />
+                    </ErrorBoundry>
                 </Scroll>
                 
             </div>
