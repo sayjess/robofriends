@@ -1,14 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 import './index.css';
 import App from './Containers/App';
 import reportWebVitals from './reportWebVitals';
 import 'tachyons';
+import { searchRobots } from './reducer'
+
+
+const store = createStore(searchRobots);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* Provider - to not pass down the store props all the way down the component tree */}
+    <Provider store={store} >
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 
